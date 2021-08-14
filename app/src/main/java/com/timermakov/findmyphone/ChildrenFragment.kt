@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.timermakov.findmyphone.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {
@@ -20,6 +21,13 @@ class ChildrenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentChildrenBinding.inflate(inflater, container, false)
+
+        /*
+        binding.children.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
+        */
 
         return binding.root
     }
