@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "242754648704",
+    "project_id": "findmyphone-322912",
+    "storage_bucket": "findmyphone-322912.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:242754648704:android:86aa3292b4456744464465",
+        "android_client_info": {
+          "package_name": "com.timermakov.findmyphone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "242754648704-5d8ot0qb8lpciii1c1m2cpdr29h5ia6r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQyKTEw-I7JPeQ-kTKernayOkNZ8tO_J4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "242754648704-5d8ot0qb8lpciii1c1m2cpdr29h5ia6r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
