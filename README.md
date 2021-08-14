@@ -12,6 +12,6 @@ FindMyPhone - приложение на Android, которое позволяе
 * Взаимодействие с картой, на которой отмечены местоположения контактов
 ...
 
-### Скриншоты
+## Скриншоты
 ![photo_2021-08-15_05-06-40](https://user-images.githubusercontent.com/28806684/129457719-b41fface-3f55-411b-b128-239f0ab649c8.jpg)
 ![photo_2021-08-15_05-06-43](https://user-images.githubusercontent.com/28806684/129457721-7dbbb68c-27f5-4101-930b-019213cf0911.jpg)
