@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.timermakov.findmyphone.databinding.FragmentOrdersBinding
+import com.timermakov.findmyphone.databinding.FragmentChildrenBinding
 
 class ChildrenFragment : Fragment() {
-    lateinit var binding: FragmentOrdersBinding
+    lateinit var binding: FragmentChildrenBinding
     lateinit var adapter: ChildrenAdapter
     private val children: List<Child> by lazy {
         ChildrenReader(requireContext()).read()!!
@@ -19,7 +19,7 @@ class ChildrenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentOrdersBinding.inflate(inflater, container, false)
+        binding = FragmentChildrenBinding.inflate(inflater, container, false)
 
         return binding.root
     }

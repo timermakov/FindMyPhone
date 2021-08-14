@@ -5,24 +5,24 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.timermakov.findmyphone.databinding.OrderItemBinding
+import com.timermakov.findmyphone.databinding.ChildItemBinding
 
-class ChildrenAdapter(data: List<Child>) : RecyclerView.Adapter<ChildrenAdapter.OrderHolder>() {
+class ChildrenAdapter(data: List<Child>) : RecyclerView.Adapter<ChildrenAdapter.ChildHolder>() {
     var data: List<Child> = data
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    class OrderHolder(var binding: OrderItemBinding) : RecyclerView.ViewHolder(binding.root)
+    class ChildHolder(var binding: ChildItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderHolder {
-        val binding = OrderItemBinding
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChildHolder {
+        val binding = ChildItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
-        return OrderHolder(binding)
+        return ChildHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: OrderHolder, position: Int) {
+    override fun onBindViewHolder(holder: ChildHolder, position: Int) {
         with(holder) {
             binding.childAddress.text = data[position].address
             binding.childContent.text = data[position].content

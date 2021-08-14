@@ -53,7 +53,7 @@ class MapFragment : Fragment(), OnMapReadyCallback,
         client = LocationServices.getFusedLocationProviderClient(requireContext())
 
         arguments?.let {
-            args = OrdersFragmentArgs.fromBundle(it)
+            args = ChildrenFragmentArgs.fromBundle(it)
         }
 
         if (checkPermissions()) {

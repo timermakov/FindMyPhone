@@ -20,9 +20,9 @@ class MarkerInfoWindowAdapter(
         val child = marker.tag as? Child ?: return null
         val binding = MarkerInfoContentsBinding.inflate(LayoutInflater.from(context))
 
-        binding.textViewTitle.text = child.name
+        binding.textViewName.text = child.name
         binding.textViewAddress.text = child.address
-        binding.textViewRating.text = child.content
+        binding.textViewPhone.text = child.content
         return binding.root
     }
 }
