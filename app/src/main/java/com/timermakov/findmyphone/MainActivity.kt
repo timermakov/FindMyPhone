@@ -1,41 +1,48 @@
 package com.timermakov.findmyphone
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.snackbar.Snackbar
-import com.timermakov.findmyphone.databinding.ActivityMainBinding
+import androidx.core.content.ContextCompat
+import com.timermakov.findmyphone.Metrics
+
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    lateinit var metrics: Metrics
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val badge = binding.bottomNavigation.getOrCreateBadge(R.id.children)
-        badge.isVisible = true
-        badge.number = 4
-
-        setContentView(binding.root)
-        setupBottomNavigationBar()
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
+        setContentView(R.layout.activity_main)
+        checkPermissions()
     }
 
-    private fun setupBottomNavigationBar() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.navFragment) as NavHostFragment
-        NavigationUI.setupWithNavController(
-            binding.bottomNavigation,
-            navHostFragment.navController
-        )
+    fun startMetrics() {
+        metrics = Metrics(this)
+        metrics.getMetrics()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                startMetrics()
+        }
+        else {
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.READ_PHONE_STATE), 0)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        checkPermissions()
     }
 }
